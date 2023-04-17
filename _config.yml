@@ -1,7 +1,6 @@
 title:              Tomas Cufaro 
 email:              tomascufaro@gmail.com
-description:        personal blog
-author:             tomascufaro
+description:        Data enthusiast 
 baseurl:            ""
 url:                "tomascufaro.github.io"
 
@@ -23,3 +22,4 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+highlighter: rouge
