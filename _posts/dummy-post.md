@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Autogen study: Focus Group"
-subtitle: "Focus group recreation using agents"
-date: 2024-07-19 23:45:13 -0400
+title: "Autogen study: Focus Group dummy"
+subtitle: "Focus group recreation using agents asdas d"
+date: 2024-098-19 23:45:13 -0400
 background: '/img/posts/agents/agentsai.jpg'
 ---
 
