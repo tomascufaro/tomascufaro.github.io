@@ -1,8 +1,11 @@
-title:              Tomas Cufaro 
+title:              Signal & Syntax
+author:             Tomas Cufaro Fernandez
 email:              tomascufaro@gmail.com
 description:        Signal engineering | AI | Data science
 baseurl:            ""
-url:                "tomascufaro.github.io"
+url:                "https://tomascufaro.github.io"
+social_image:       "/screenshot.png"
+formspree_action:   "https://formspree.io/f/your-form-id"
 
 # Social Profiles
 twitter_username:   
@@ -12,7 +15,7 @@ instagram_username:
 linkedin_username: tomascufaro
 
 # Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+google_analytics:   G-XXXXXXXXXX # replace with your GA4 measurement ID
 
 # Build settings
 markdown:           kramdown
@@ -22,4 +25,5 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+  - jekyll-seo-tag ## Adds structured metadata for SEO/social cards
 highlighter: rouge

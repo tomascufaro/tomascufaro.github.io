@@ -3,44 +3,71 @@
 * Copyright 2013-2021 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
 */
-(function ($) {
-    "use strict"; // Start of use strict
+(() => {
+  "use strict";
 
-    // Floating label headings for the contact form
-    $("body").on("input propertychange", ".floating-label-form-group", function (e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-    }).on("focus", ".floating-label-form-group", function () {
-        $(this).addClass("floating-label-form-group-with-focus");
-    }).on("blur", ".floating-label-form-group", function () {
-        $(this).removeClass("floating-label-form-group-with-focus");
-    });
+  const body = document.body;
 
-    // Show the navbar when the page is scrolled up
-    var MQL = 992;
+  const setFloatingState = (group, hasValue) => {
+    group.classList.toggle("floating-label-form-group-with-value", hasValue);
+  };
 
-    //primary navigation slide-in effect
-    if ($(window).width() > MQL) {
-        var headerHeight = $('#mainNav').height();
-        $(window).on('scroll', {
-                previousTop: 0
-            },
-            function () {
-                var currentTop = $(window).scrollTop();
-                //check if user is scrolling up
-                if (currentTop < this.previousTop) {
-                    //if scrolling up...
-                    if (currentTop > 0 && $('#mainNav').hasClass('is-fixed')) {
-                        $('#mainNav').addClass('is-visible');
-                    } else {
-                        $('#mainNav').removeClass('is-visible is-fixed');
-                    }
-                } else if (currentTop > this.previousTop) {
-                    //if scrolling down...
-                    $('#mainNav').removeClass('is-visible');
-                    if (currentTop > headerHeight && !$('#mainNav').hasClass('is-fixed')) $('#mainNav').addClass('is-fixed');
-                }
-                this.previousTop = currentTop;
-            });
+  // Initialize existing floating label states
+  const floatingInputs = body.querySelectorAll(".floating-label-form-group input, .floating-label-form-group textarea");
+  floatingInputs.forEach((input) => {
+    const group = input.closest(".floating-label-form-group");
+    if (group) {
+      setFloatingState(group, !!input.value);
     }
+  });
 
-})(jQuery); // End of use strict
+  // Floating label interactions
+  body.addEventListener("input", (event) => {
+    const group = event.target.closest(".floating-label-form-group");
+    if (group) {
+      setFloatingState(group, !!event.target.value);
+    }
+  });
+
+  body.addEventListener("focusin", (event) => {
+    const group = event.target.closest(".floating-label-form-group");
+    if (group) {
+      group.classList.add("floating-label-form-group-with-focus");
+    }
+  });
+
+  body.addEventListener("focusout", (event) => {
+    const group = event.target.closest(".floating-label-form-group");
+    if (group) {
+      group.classList.remove("floating-label-form-group-with-focus");
+    }
+  });
+
+  const nav = document.getElementById("mainNav");
+  const MQL = 992;
+
+  // Primary navigation slide-in effect
+  if (nav && window.innerWidth > MQL) {
+    const headerHeight = nav.offsetHeight;
+    let previousTop = 0;
+
+    window.addEventListener("scroll", () => {
+      const currentTop = window.scrollY;
+
+      if (currentTop < previousTop) {
+        if (currentTop > 0 && nav.classList.contains("is-fixed")) {
+          nav.classList.add("is-visible");
+        } else {
+          nav.classList.remove("is-visible", "is-fixed");
+        }
+      } else if (currentTop > previousTop) {
+        nav.classList.remove("is-visible");
+        if (currentTop > headerHeight && !nav.classList.contains("is-fixed")) {
+          nav.classList.add("is-fixed");
+        }
+      }
+
+      previousTop = currentTop;
+    });
+  }
+})();

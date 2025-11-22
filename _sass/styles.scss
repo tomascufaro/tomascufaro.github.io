@@ -1,3 +1,146 @@
 // Import Core Clean Blog SCSS
 @import "../assets/vendor/startbootstrap-clean-blog/scss/styles.scss";
 @import "../assets/vendor/code_highlighter/github.scss";
+
+// Modern Card Styles
+.post-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    text-decoration: none;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  
+  .post-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #6c757d;
+  }
+  
+  .post-meta {
+    font-size: 0.85rem;
+    color: #adb5bd;
+    margin-bottom: 0;
+  }
+}
+
+.card-link {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+// Accessible hiding utility (works across Bootstrap 4/5)
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Modern Gradient Header (Default/Home)
+header.masthead {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  margin-bottom: 50px;
+  position: relative;
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .page-heading, .site-heading {
+    color: white;
+    padding: 150px 0;
+  }
+  
+  // Fix for pages with specific background images (like About Me)
+  &.has-image {
+    background-size: cover; // Ensure image covers the area
+    background-position: center center; // Center the image
+    animation: none; // Disable the gradient animation
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header.masthead {
+    animation: none;
+    background-position: 0% 50%;
+  }
+
+  .post-card {
+    transition: none;
+  }
+}
+
+// Social icons (text-based inline SVG)
+.social-link {
+  color: #343a40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    color: #007bff;
+    text-decoration: none;
+  }
+}
+
+.social-svg {
+  width: 48px;
+  height: 48px;
+}
+
+.social-circle {
+  fill: currentColor;
+  opacity: 0.12;
+}
+
+.social-glyph {
+  fill: currentColor;
+}
+
+.social-text {
+  fill: currentColor;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  dominant-baseline: middle;
+}
