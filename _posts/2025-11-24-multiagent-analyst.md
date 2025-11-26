@@ -86,12 +86,11 @@ Building an autonomous system is an iterative process. While the current version
 *   **Enhanced Intelligence:** Integrate more sophisticated news providers and sentiment analysis models to catch nuance that simple keyword matching misses.
 *   **Technical Analysis Agent:** Add a specialized agent dedicated solely to technical indicators (RSI, MACD, Moving Averages) to provide better entry and exit timing context.
 
-## Let's Collaborate
 
 This project demonstrates that **workflow automation** is about more than just moving data from A to B. It's about orchestrating intelligence. By combining robust data engineering (SQLite/Alpaca) with agentic AI (CrewAI) and CI/CD scheduling (GitHub Actions), we can build systems that don't just "help" us work, but actually *do* the work.
 
 The code for this project is open-source. [Check out the code on GitHub](https://github.com/tomascufaro/multiagent_trade_system/tree/main).
 
-I am actively looking for collaborators to help expand this system or apply these automation principles to new domains. If you're interested in building the future of autonomous workflows, reach out!
+I am open to collaborations to expand this system or apply these automation principles to new domains. If you're interested, feel free to reach out!
 
 *Technologies used: Python, CrewAI, Alpaca API, SQLite, GitHub Actions, Jinja2.*
